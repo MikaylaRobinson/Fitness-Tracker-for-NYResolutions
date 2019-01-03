@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en"> 
+    <title> Healthylife Tracker</title>
+    <head>
+        <link href = "../static/main.css" rel = "stylesheet">
+    </head>
+        <body>
+            <div class="navbar">
+              <a href="{{url_for('index')}}">Enter Data</a>
+              <a href="{{url_for('the_data')}}">Progress Dashboard</a>
+            </div>
+            <div class = "container">
+                <h1>Healthylife</h1>
+                <h3>How did healthylife go today?</h3>
+                <div class = "message">
+                {{text | safe}}
+                </div>
+                <form action = "{{url_for('submitted')}}" method = "POST">
+                      <div>
+                        <label for = "date_today">What is the date?</label>
+                        <input title = "What is the date?" placeholder = "mm/dd/yyy" type = "date" name = "date_today" required> <br>
+                        
+                        <label for = "workout_yn">Did you work out today?</label>
+                        <input type = "radio" name = "workout_yn" value = "Yes" required>Yes
+                        <input type = "radio" name = "workout_yn" value = "No" required>No <br>
+
+                        <label for="workout_type">Select workout type:</label>
+                        <select name="workout_type" required>
+                          <option value="none">Rest Day</option>
+                          <option value="run">Run</option>
+                          <option value="bike">Bike</option>
+                          <option value="swim">Swim</option>
+                          <option value="arms weights">Arms Weightlifting</option>
+                          <option value="legs weights">Legs Weightlifting</option>
+                          <option value="abs">Abs</option>
+                          <option value="yoga">Yoga</option>
+                        </select> <br>
+                        
+                        <label for = "calories_eaten">How many calories did you consume?</label>
+                        <input title = "How many calories did you consume today?" placeholder = "calories" type = "integer" name = "calories_eaten" required> <br>
+                        
+                        <label for = "steps_taken">How many steps did you take today?</label>
+                        <input title = "How many steps did you take today?" placeholder = "steps" type = "integer" name = "steps_taken" required> <br>
+
+                        <label for = "current_weight">How much did you weigh today?</label>
+                        <input title = "How much did you weigh today?" placeholder = "weight" type = "float" name = "current_weight" required> <br>
+
+                        <button type = "submit">Submit 
+                    
+                      </div>
+                </form>    
+            </div>
+        </body>
+</html>
